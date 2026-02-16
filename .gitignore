@@ -1,6 +1,15 @@
 
 data/*
+!data/.gitkeep
+
+data/models/*
 !data/models/.gitkeep
+
+data/datainput/*
 !data/datainput/.gitkeep
+
+data/temp/*
 !data/temp/.gitkeep
+
+data/dataoutput/*
 !data/dataoutput/.gitkeep
