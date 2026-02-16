@@ -1,0 +1,24 @@
+
+#Python version
+#python==3.12
+
+#pip version
+pip==25.0.1
+
+##packages
+pandas
+bs4
+lxml
+tqdm
+spacy
+gensim
+nltk
+tqdm
+numpy
+unidecode
+matplotlib
+bertopic
+scikit-learn
+nltk
+hf_xet
+
