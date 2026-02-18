@@ -25,7 +25,7 @@ df = df[["text_id"]]
 #####################################
 #****** SAVE RESULTS ***************#
 #####################################
-topic_model = BERTopic.load("data/models/bert_topic_120226")
+topic_model = BERTopic.load("data/models/bert_topic_120226_reducedTopics")
 
 df = topic_model.get_document_info(documents, df = df)[["text_id", "Topic"]].rename(columns = {"Topic" : "bertopic"})
 
