@@ -11,26 +11,26 @@ tqdm.pandas()
 #####################################
 
 # Charger les discours
-df = pd.read_csv('data/temp/parsing_full_corpus.csv').reset_index().rename(columns = {"index" : "text_id"})
+df = pd.read_csv("data/datainput/phrase_jt_2012_2024.csv", index_col = 0, sep = ';').reset_index().rename(
+    columns = {"index" : "text_id"})
 
 #df = df.iloc[0:500]
 
 # Convertir les discours en liste
-documents = df["text"].tolist()
+documents = df["sentence_text"].tolist()
 
 df = df[["text_id"]]
-
 
 
 #####################################
 #****** SAVE RESULTS ***************#
 #####################################
-topic_model = BERTopic.load("data/models/bert_topic_310325")
+topic_model = BERTopic.load("data/models/bert_topic_120226")
 
 df = topic_model.get_document_info(documents, df = df)[["text_id", "Topic"]].rename(columns = {"Topic" : "bertopic"})
 
 df["bertopic"].value_counts()
 
-df.to_csv("data/temp/bertopic/bertopic_unlabelled.csv")
+df.to_csv("data/temp/bertopic_unlabelled.csv")
 
-topic_model.get_topic_info().to_csv("data/temp/bertopic/topic_info.csv")
+topic_model.get_topic_info().to_csv("data/temp/topic_info.csv")
