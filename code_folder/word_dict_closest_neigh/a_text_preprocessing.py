@@ -6,20 +6,20 @@ tqdm.pandas()
 from unidecode import unidecode
 from nltk.tokenize import sent_tokenize
 from itertools import chain
+import re
 
 nlp = spacy.load('fr_core_news_lg')
 
 # Charger les discours
-df = pd.read_csv("data/temp/parsing_full_corpus.csv", encoding="utf8")
+df = pd.read_csv("data/datainput/phrase_jt_2012_2024.csv", index_col = 0, sep = ';')
 
-
-df['text'] = df['text'].str.lower()
-df['text'] = df['text'].apply(lambda x: unidecode(x.lower()))
-df['sentences'] = df['text'].progress_apply(lambda x: sent_tokenize(x))
+df["sentence_text"] = df["sentence_text"].progress_apply(lambda x : re.sub("  ", " ", x))
+df['sentence_text'] = df['sentence_text'].str.lower()
+df['sentence_text'] = df['sentence_text'].progress_apply(lambda x: unidecode(x.lower()))
+df['sentences'] = df['sentence_text'].progress_apply(lambda x: sent_tokenize(x))
 
 
 df = df['sentences']
-
 
 corpus = list(chain.from_iterable(df))
 
