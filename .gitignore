@@ -11,5 +11,11 @@ data/datainput/
 data/temp/
 !data/temp/.gitkeep
 
+data/temp/bash/
+!data/temp/bash/.gitkeep
+
+data/temp/word_dictionaries/
+!data/temp/word_dictionaries/.gitkeep
+
 data/dataoutput/
 !data/dataoutput/.gitkeep

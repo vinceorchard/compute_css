@@ -21,4 +21,6 @@ bertopic
 scikit-learn
 nltk
 hf_xet
+aiohttp
 
+#run: python -m spacy download  fr_core_news_lg
