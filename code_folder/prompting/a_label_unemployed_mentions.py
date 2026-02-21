@@ -65,7 +65,7 @@ def classify_all(texts, max_workers=4):
     return results
 
 
-temp = df.iloc[0:80].copy()
+#temp = df.iloc[0:80].copy()
 #temp["result"] = classify_all(temp["sentence_text"].tolist())
 
 #df["result"] = classify_all(df["sentence_text"].tolist())
@@ -95,7 +95,7 @@ print(f"Start LLM annotation")
 
 start_time = time.time()
 
-apply_in_batches(temp, col_input = "sentence_text", col_output = "mention_chomeurs", f = classify_all, other_col_to_save = ["solr_id", "sentence_id"],
+apply_in_batches(df, col_input = "sentence_text", col_output = "mention_chomeurs", f = classify_all, other_col_to_save = ["solr_id", "sentence_id"],
                  n_batches = 10, file_name = "mention_chomeurs", path_to_store_bashes = 'data/temp/bash/')
 
 elapsed_time = time.time() - start_time
