@@ -23,11 +23,11 @@ def quick_cleaning(text):
     return " ".join(tokens)
 
 texts = df["sentence_text"].progress_apply(quick_cleaning).tolist()
-docs = list(nlp.pipe(texts, batch_size=1000, n_process=4))
+docs = list(nlp.pipe(texts, batch_size=1000))
 df["sentence_text_clean"] = docs
 
 texts = df_all["sentence_text"].progress_apply(quick_cleaning).tolist()
-docs = list(nlp.pipe(texts, batch_size=1000, n_process=4))
+docs = list(nlp.pipe(texts, batch_size=1000))
 df_all["sentence_text_clean"] = docs
 
 
