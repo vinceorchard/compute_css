@@ -37,7 +37,6 @@ df_all["sentence_text_clean"] = docs
 lemmas_all = {}
 
 for text in tqdm(df_all["sentence_text_clean"]):
-    token = str(text)
     for token in text:
         #lemma = token.lemma_
         #lemma = token
@@ -55,7 +54,6 @@ with open('data/dataoutput/words_frequency_Fdataset.pk', 'wb') as f:
 lemmas_chomeurs = {}
 
 for text in tqdm(df["sentence_text_clean"]):
-    token = str(text)
     for token in text:
         #lemma = token.lemma_
         #lemma = token
